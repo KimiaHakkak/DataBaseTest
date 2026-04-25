@@ -13,7 +13,7 @@
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>
 	<Model>
-		<Element Type="SqlDatabaseOptions" Disambiguator="1">
+		<Element Type="SqlDatabaseOptions">
 			<Property Name="Collation" Value="SQL_Latin1_General_CP1_CI_AS" />
 			<Property Name="IsAnsiNullDefaultOn" Value="True" />
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -144,6 +144,33 @@ END;]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE MyCounter&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
+		<Element Type="SqlTable" Name="[dbo].[newtable]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[newtable].[id]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
 		<Element Type="SqlTable" Name="[dbo].[test]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="Columns">
@@ -181,32 +208,6 @@ END;]]></Value>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
-				</Entry>
-			</Relationship>
-		</Element>
-		<Element Type="SqlPermissionStatement" Name="[Grant.ViewAnyColumnEncryptionKeyDefinition.Database].[public].[dbo]">
-			<Property Name="Permission" Value="1108" />
-			<Relationship Name="Grantee">
-				<Entry>
-					<References ExternalSource="BuiltIns" Name="[public]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="SecuredObject">
-				<Entry>
-					<References Disambiguator="1" />
-				</Entry>
-			</Relationship>
-		</Element>
-		<Element Type="SqlPermissionStatement" Name="[Grant.ViewAnyColumnMasterKeyDefinition.Database].[public].[dbo]">
-			<Property Name="Permission" Value="1107" />
-			<Relationship Name="Grantee">
-				<Entry>
-					<References ExternalSource="BuiltIns" Name="[public]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="SecuredObject">
-				<Entry>
-					<References Disambiguator="1" />
 				</Entry>
 			</Relationship>
 		</Element>
