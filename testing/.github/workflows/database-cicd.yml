@@ -1,0 +1,33 @@
+name: Build and Deploy SQL Database Project
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  # Relative path from repository root to your .sqlproj file
+  ProjectPath: './testing/DatabaseProjecttest/DatabaseProjecttest.sqlproj'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Install SqlPackage CLI
+        run: dotnet tool install -g Microsoft.SqlPackage
+
+      - name: Build SQL Project
+        run: |
+          dotnet build "${{ env.ProjectPath }}" --configuration Release
+
+      - name: Deploy .dacpac to Database
+        run: |
+          sqlpackage /Action:Publish \
+            /SourceFile:"./testing/DatabaseProjecttest/bin/Release/DatabaseProjecttest.dacpac" \
+            /TargetConnectionString:"${{ secrets.DB_CONNECTION_STRING }}"
