@@ -1,5 +1,1 @@
 c:\Users\kimia\OneDrive\Desktop\DataBaseTest\testing\DatabaseProjecttest\bin\Debug\DatabaseProjecttest.dacpac
-c:\Users\kimia\OneDrive\Desktop\DataBaseTest\testing\DatabaseProjecttest\obj\Debug\Model.xml
-c:\Users\kimia\OneDrive\Desktop\DataBaseTest\testing\DatabaseProjecttest\obj\Debug\refactor.xml
-c:\Users\kimia\OneDrive\Desktop\DataBaseTest\testing\DatabaseProjecttest\obj\Debug\postdeploy.sql
-c:\Users\kimia\OneDrive\Desktop\DataBaseTest\testing\DatabaseProjecttest\obj\Debug\predeploy.sql
