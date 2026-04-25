@@ -32,6 +32,22 @@
 				"isDefault": true
 			},
 			"detail": "Builds the DatabaseProjecttest SQL project"
+		},
+		{
+			"label": "sqlproj: Build test",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"c:/Users/kimia/OneDrive/Desktop/DataBaseTest/test/test.sqlproj"
+			],
+			"problemMatcher": "$sqlproj-problem-matcher",
+			"isBackground": true,
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "Builds the test SQL project"
 		}
 	]
 }
